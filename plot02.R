@@ -10,12 +10,8 @@ subpower[1:1440,"Time"] <- format(subpower[1:1440,"Time"],"2007-02-01 %H:%M:%S")
 subpower[1441:2880,"Time"] <- format(subpower[1441:2880,"Time"],"2007-02-02 %H:%M:%S")
 
 
-# calling the basic plot functions
-plot(subpower$Time,subpower$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering")
-with(subpower,lines(Time,as.numeric(as.character(Sub_metering_1))))
-with(subpower,lines(Time,as.numeric(as.character(Sub_metering_2)),col="red"))
-with(subpower,lines(Time,as.numeric(as.character(Sub_metering_3)),col="blue"))
-legend("topright", lty=1, col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+# calling the basic plot function
+plot(subpower$Time,as.numeric(as.character(subpower$Global_active_power)),type="l",xlab="",ylab="Global Active Power (kilowatts)") 
 
 # annotating graph
-title(main="Energy sub-metering")
+title(main="Global Active Power Vs Time")
